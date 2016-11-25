@@ -1,0 +1,145 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.raeven.guidance.AppointmentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/hLinearAppointment">
+
+            <Button
+                android:layout_width="38dp"
+                android:layout_height="37dp"
+                android:id="@+id/btnBack"
+                android:background="?attr/actionModeCloseDrawable"
+                android:maxHeight="48dp"
+                android:maxWidth="48dp"
+                android:minWidth="48dp" />
+
+            <TextView
+                android:text="{Student name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblAppointmentWith"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="false"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="How the counselor may be of help:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblAnswer1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView12"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="Current concern:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblCurrentConcern"
+            android:layout_below="@+id/hLinearAppointment"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="Academic Performance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblAnswer1"
+            android:layout_below="@+id/lblCurrentConcern"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="Some text here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView13"
+            android:layout_below="@+id/textView12"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="Elaboration:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView13"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView14"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="A little elaboration of the problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView14"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView15"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:text="Preferred time:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView29"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/txtPrefDate"
+            android:layout_below="@+id/textView29"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:autoText="false"
+            android:enabled="false"
+            android:editable="true" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPrefDate"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView33"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:layout_below="@+id/textView33"
+            android:layout_alignLeft="@+id/txtPrefDate"
+            android:layout_alignStart="@+id/txtPrefDate" />
+
+    </RelativeLayout>
+</FrameLayout>

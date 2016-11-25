@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
  * A simple {@link Fragment} subclass.
  */
 public class AssessmentFragment extends Fragment {
-
     Button btnNext;
     RadioButton r1;
     RadioButton r2;

@@ -38,6 +38,12 @@ public class DashboardActivityAdmin extends AppCompatActivity
 
         Intent rcvIntent = getIntent();
         number = rcvIntent.getStringExtra("Number");
+
+        HomeFragmentAdmin homeFragment = new HomeFragmentAdmin();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.fragmentHolder, homeFragment,
+                homeFragment.getTag()).commit();
+
         Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
     }
 
@@ -80,7 +86,13 @@ public class DashboardActivityAdmin extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
+            HomeFragmentAdmin homeFragment = new HomeFragmentAdmin();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.fragmentHolder, homeFragment,
+                    homeFragment.getTag()).commit();
+
             Toast.makeText(this, "I'm at Home", Toast.LENGTH_SHORT).show();
+
         }
 
         else if (id == R.id.nav_assessment) {

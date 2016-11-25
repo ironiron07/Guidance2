@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Invalid User/Password", Toast.LENGTH_SHORT).show();
                                 }
 
-                            } else {
                             }
                         }
 
@@ -134,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Invalid User/Password", Toast.LENGTH_SHORT).show();
                                     }
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Invalid User/Password", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
