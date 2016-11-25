@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "773015199303",
+    "firebase_url": "https://guidance2-3b07b.firebaseio.com",
+    "project_id": "guidance2-3b07b",
+    "storage_bucket": "guidance2-3b07b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773015199303:android:acee745e3f808b0d",
+        "android_client_info": {
+          "package_name": "com.example.raeven.guidance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773015199303-vpbntdam65t4r6hpjfi2cstknklvi4ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.raeven.guidance",
+            "certificate_hash": "7D4DF200C8E9607FCEB37A598A669C02750D1E14"
+          }
+        },
+        {
+          "client_id": "773015199303-r8pnn7ookhrjeiogp8c3mvjbsjsk8iep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvQotyV0D2C98dQyo5ehs3PKNvZWgvSGE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773015199303-r8pnn7ookhrjeiogp8c3mvjbsjsk8iep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
