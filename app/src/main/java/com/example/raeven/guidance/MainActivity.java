@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     String user = "",pass = "";
 
-    int check = 0;
+    String check;
 
     DatabaseReference _counselor;
     DatabaseReference _student;
@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class)); // go back to main screen
         }
         //endregion
-
     }
 
     protected void onStart(){
@@ -84,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText password = (EditText)findViewById(R.id.editText_password);
                 user = username.getText().toString();
                 pass = password.getText().toString();
+                int test = 0;
                 if(pass.trim().length() != 0 && user.trim().length() != 0) {
                     _counselor.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -95,9 +95,10 @@ public class MainActivity extends AppCompatActivity {
                                 String name = map.get("Name");
                                 if (user.equals(hello2) && pass.equals(hello)) {
                                     Toast.makeText(getApplicationContext(), "Hello " + name + "!", Toast.LENGTH_SHORT).show();
-                                    check = 1;
+                                    check = "1";
                                     Intent intent = new Intent(getApplicationContext(), DashboardActivityAdmin.class);
                                     intent.putExtra("Number", hello2);
+                                    intent.putExtra("accountType", "counselor");
                                     startActivity(intent);
 
                                 } else {
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
 
-                    if(check == 0) {
+                    if(check != "1") {
                         _student.child(user).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.makeText(getApplicationContext(), "Hello " + name + "!", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                         intent.putExtra("Number", hello2);
+                                        intent.putExtra("accountType", "student");
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Invalid User/Password", Toast.LENGTH_SHORT).show();

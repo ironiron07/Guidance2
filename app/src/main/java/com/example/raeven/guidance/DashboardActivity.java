@@ -23,9 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    TextView textName;
     DatabaseReference _counselor;
     DatabaseReference _student;
+    String number;
+    String accType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +53,11 @@ public class DashboardActivity extends AppCompatActivity
         manager.beginTransaction().replace(R.id.fragmentHolder, accountFragment,
                 accountFragment.getTag()).commit();
 
-        textName = (TextView)findViewById(R.id.textName);
-        //textName.setText("Tyrone Eurick N. Maturan");
+
 
         Intent rcvIntent = getIntent();
-        String number = rcvIntent.getStringExtra("Number");
+        this.number = rcvIntent.getStringExtra("Number");
+        this.accType = rcvIntent.getStringExtra("accountType");
         Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
     }
 
@@ -158,5 +159,9 @@ public class DashboardActivity extends AppCompatActivity
 
     }
 
+    public String getAccount(){
+        return this.number;
+    }
+    public String getAccountType(){ return this.accType; }
 
 }
