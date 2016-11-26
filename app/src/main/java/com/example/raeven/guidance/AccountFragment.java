@@ -46,9 +46,6 @@ public class AccountFragment extends Fragment {
         _counselor = database.getReference("Accounts").child("Counselors");
         _student = database.getReference("Accounts").child("Student");
 
-//        MainActivity dashActivity = (MainActivity) getActivity();
-//        accountNo = dashActivity.getAccount();
-//        accountType = dashActivity.getAccountType();
         View v = inflater.inflate(R.layout.fragment_account, container, false);
 
         Bundle bundle = this.getArguments();

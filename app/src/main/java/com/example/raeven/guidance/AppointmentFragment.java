@@ -32,6 +32,8 @@ public class AppointmentFragment extends Fragment {
     DatabaseReference reference;
     DatabaseReference _student;
 
+    Bundle bundle;
+
     String name;
 
     public AppointmentFragment() {
@@ -48,7 +50,7 @@ public class AppointmentFragment extends Fragment {
         _student = database.getReference("Accounts").child("Student");
 
 
-        Bundle bundle = this.getArguments();
+        bundle = this.getArguments();
 
         studentNumber = bundle.getString("btnText");
         final TextView lblName = (TextView)v.findViewById(R.id.lblAppointmentWith);
@@ -87,6 +89,7 @@ public class AppointmentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ChatFragment chatFragment = new ChatFragment();
+                chatFragment.setArguments(bundle);
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragmentHolder, chatFragment,
                         chatFragment.getTag()).commit();
@@ -103,9 +106,10 @@ public class AppointmentFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                HomeFragmentAdmin homeFragmentAdmin = new HomeFragmentAdmin();
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().show(fragmentManager.findFragmentById(R.id.adminHome)).commit();
-                fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(R.id.appointmentFrag)).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragmentHolder, homeFragmentAdmin,
+                        homeFragmentAdmin.getTag()).commit();
             }
         });
     }

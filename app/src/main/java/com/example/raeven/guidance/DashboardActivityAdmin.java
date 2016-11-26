@@ -24,18 +24,8 @@ import java.util.List;
 public class DashboardActivityAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     String number;
-    ListView lv;
 
     String accType;
-
-//    public interface UserObject {
-//        public static User user;
-//        public static User getInstance(){
-//            return this.user;
-//        }
-//
-//        public static
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +33,6 @@ public class DashboardActivityAdmin extends AppCompatActivity
         setContentView(R.layout.activity_menu_bar_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //user = new User();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -119,15 +107,6 @@ public class DashboardActivityAdmin extends AppCompatActivity
                     homeFragment.getTag()).commit();
 
             Toast.makeText(this, "I'm at Home", Toast.LENGTH_SHORT).show();
-
-        }
-
-        else if (id == R.id.nav_assessment) {
-            Toast.makeText(this, "I'm at Assessment", Toast.LENGTH_SHORT).show();
-            AssessmentFragment assessmentFragment = new AssessmentFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.fragmentHolder, assessmentFragment,
-                    assessmentFragment.getTag()).commit();
 
         }
 
