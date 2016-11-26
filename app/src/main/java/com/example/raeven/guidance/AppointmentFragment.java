@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +31,7 @@ public class AppointmentFragment extends Fragment {
     EditText txtSetAppointment;
     String studentNumber;
 
-    DatabaseReference reference;
+    DatabaseReference _appointment;
     DatabaseReference _student;
 
     Bundle bundle;
@@ -48,12 +50,35 @@ public class AppointmentFragment extends Fragment {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         _student = database.getReference("Accounts").child("Student");
+        _appointment = database.getReference("Appointment");
 
 
         bundle = this.getArguments();
 
         studentNumber = bundle.getString("btnText");
-        final TextView lblName = (TextView)v.findViewById(R.id.lblAppointmentWith);
+        final TextView lblName = (TextView)v.findViewById(R.id.lblAnswer1);
+        final TextView concern = (TextView)v.findViewById(R.id.lblCurrentConcern);
+        final TextView help = (TextView)v.findViewById(R.id.lblHelp);
+        final TextView problem = (TextView)v.findViewById(R.id.textView14);
+        final EditText time = (EditText)v.findViewById(R.id.txtPrefDate);
+
+        _appointment.child(studentNumber).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
+                    concern.setText(map.get("Answer1"));
+                    help.setText(map.get("Answer2"));
+                    problem.setText(map.get("Answer3"));
+                    time.setText(map.get("Answer4"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         _student.child(studentNumber).addValueEventListener(new ValueEventListener() {
 
@@ -70,6 +95,8 @@ public class AppointmentFragment extends Fragment {
 
             }
         });
+
+
 
         // Inflate the layout for this fragment
         openChat = (Button) v.findViewById(R.id.btnOpenChat);

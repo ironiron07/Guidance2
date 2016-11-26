@@ -64,27 +64,31 @@
 
         <TextView
             android:text="Academic Performance"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lblAnswer1"
             android:layout_below="@+id/lblCurrentConcern"
             android:layout_centerHorizontal="true"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:gravity="center"/>
 
         <TextView
             android:text="Some text here"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView13"
+            android:id="@+id/lblHelp"
             android:layout_below="@+id/textView12"
             android:layout_centerHorizontal="true"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:gravity="center"/>
 
         <TextView
             android:text="Elaboration:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView13"
+            android:layout_below="@+id/lblHelp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:id="@+id/textView14"
@@ -92,33 +96,40 @@
 
         <TextView
             android:text="A little elaboration of the problem"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView14"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView15"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:gravity="center"/>
 
         <TextView
             android:text="Student's preferred time:"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/textView29"
-            android:layout_margin="5dp" />
+            android:id="@+id/lblProblem"
+            android:layout_margin="5dp"
+            android:gravity=""/>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="10"
             android:id="@+id/txtPrefDate"
-            android:layout_below="@+id/textView29"
+            android:layout_below="@+id/lblProblem"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
-            android:enabled="false" />
+            android:autoText="false"
+            android:enabled="false"
+            android:editable="true"
+            android:background="@drawable/border"
+            android:gravity="center"/>
 
         <TextView
             android:text="Set appointment"
@@ -138,7 +149,8 @@
             android:id="@+id/txtSetAppoinment"
             android:layout_below="@+id/textView33"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:background="@drawable/border"/>
 
         <Button
             android:text="Open Chat"
