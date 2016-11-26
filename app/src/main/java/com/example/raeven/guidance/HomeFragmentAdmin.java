@@ -95,7 +95,6 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
         //Toast.makeText(getContext(),btnText,Toast.LENGTH_SHORT).show();
         bundle.putString("btnText", btnText);
         AppointmentFragment appointmentFragment = new AppointmentFragment();
-        appointmentFragment.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.fragmentHolder, appointmentFragment,
                 appointmentFragment.getTag()).commit();

@@ -61,13 +61,14 @@
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
         android:id="@+id/q4"/>
+
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
-        android:layout_below="@+id/q4"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/q4ans"/>
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/q4ans"
+        android:layout_below="@id/q4"/>
 
     <Button
         android:text="Done"
