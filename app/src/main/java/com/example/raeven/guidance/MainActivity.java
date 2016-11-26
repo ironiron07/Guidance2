@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     String user = "",pass = "";
 
+    String accType;
+    String accNum;
+
     String check;
 
     DatabaseReference _counselor;
@@ -96,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                                 if (user.equals(hello2) && pass.equals(hello)) {
                                     Toast.makeText(getApplicationContext(), "Hello " + name + "!", Toast.LENGTH_SHORT).show();
                                     check = "1";
+                                    accNum = hello2;
+                                    accType = "counselor";
                                     Intent intent = new Intent(getApplicationContext(), DashboardActivityAdmin.class);
                                     intent.putExtra("Number", hello2);
                                     intent.putExtra("accountType", "counselor");
@@ -126,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
                                     String name = map.get("Name");
                                     if (user.equals(hello2) && pass.equals(hello)) {
                                         Toast.makeText(getApplicationContext(), "Hello " + name + "!", Toast.LENGTH_SHORT).show();
+                                        accNum = hello2;
+                                        accType = "student";
                                         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                         intent.putExtra("Number", hello2);
                                         intent.putExtra("accountType", "student");
@@ -153,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
-
+    public String getAccount(){
+        return accNum;
+    }
+    public String getAccountType(){ return accType; }
 
 }

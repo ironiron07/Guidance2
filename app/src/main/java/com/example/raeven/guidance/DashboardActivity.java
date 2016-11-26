@@ -48,17 +48,24 @@ public class DashboardActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        Intent rcvIntent = getIntent();
+        this.number = rcvIntent.getStringExtra("Number");
+        this.accType = rcvIntent.getStringExtra("accountType");
+        Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("accType", this.accType);
+        bundle.putString("number", this.number);
+
         AccountFragment accountFragment = new AccountFragment();
+        accountFragment.setArguments(bundle);
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.fragmentHolder, accountFragment,
                 accountFragment.getTag()).commit();
 
 
 
-        Intent rcvIntent = getIntent();
-        this.number = rcvIntent.getStringExtra("Number");
-        this.accType = rcvIntent.getStringExtra("accountType");
-        Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

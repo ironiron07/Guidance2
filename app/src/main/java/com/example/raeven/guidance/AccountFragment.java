@@ -47,10 +47,14 @@ public class AccountFragment extends Fragment {
         _counselor = database.getReference("Accounts").child("Counselors");
         _student = database.getReference("Accounts").child("Student");
 
-        DashboardActivity dashActivity = (DashboardActivity) getActivity();
-        accountNo = dashActivity.getAccount();
-        accountType = dashActivity.getAccountType();
+//        MainActivity dashActivity = (MainActivity) getActivity();
+//        accountNo = dashActivity.getAccount();
+//        accountType = dashActivity.getAccountType();
         View v = inflater.inflate(R.layout.fragment_account, container, false);
+
+        Bundle bundle = this.getArguments();
+        accountType = bundle.getString("accType");
+        accountNo = bundle.getString("number");
 
         textName = (TextView)v.findViewById(R.id.textName);
         textAccount = (TextView)v.findViewById(R.id.textAccount);

@@ -26,6 +26,8 @@ public class DashboardActivityAdmin extends AppCompatActivity
     String number;
     ListView lv;
 
+    String accType;
+
 //    public interface UserObject {
 //        public static User user;
 //        public static User getInstance(){
@@ -54,7 +56,8 @@ public class DashboardActivityAdmin extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent rcvIntent = getIntent();
-        number = rcvIntent.getStringExtra("Number");
+        this.number = rcvIntent.getStringExtra("Number");
+        this.accType = rcvIntent.getStringExtra("accountType");
 
         HomeFragmentAdmin homeFragment = new HomeFragmentAdmin();
         FragmentManager manager = getSupportFragmentManager();
@@ -140,7 +143,12 @@ public class DashboardActivityAdmin extends AppCompatActivity
         else if (id == R.id.nav_account) {
             Toast.makeText(this, "I'm at Account", Toast.LENGTH_SHORT).show();
             AccountFragment accountFragment = new AccountFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("accType", this.accType);
+            bundle.putString("number", this.number);
             FragmentManager manager = getSupportFragmentManager();
+
+            accountFragment.setArguments(bundle);
             manager.beginTransaction().replace(R.id.fragmentHolder, accountFragment,
                     accountFragment.getTag()).commit();
         }
@@ -171,6 +179,11 @@ public class DashboardActivityAdmin extends AppCompatActivity
 
 
     }
+
+    public String getAccount(){
+        return this.number;
+    }
+    public String getAccountType(){ return this.accType; }
 
 
 }

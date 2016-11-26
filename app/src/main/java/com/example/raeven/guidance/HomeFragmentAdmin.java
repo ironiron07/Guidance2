@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +38,9 @@ import java.util.Map;
  */
 public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
+    ArrayList<String> listahan;
+    View v;
+
     public HomeFragmentAdmin() {
         // Required empty public constructor
     }
@@ -44,34 +48,34 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_home_fragment_admin, container, false);
+        v = inflater.inflate(R.layout.fragment_home_fragment_admin, container, false);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Appointment");
         // Inflate the layout for this fragment
 
-        //Button btnName = (Button)getActivity().findViewById(R.id.button5);
-        ScrollView sv = (ScrollView)v.findViewById(R.id.scrollView);
-        LinearLayout ll = new LinearLayout(getActivity());
-        ll.setOrientation(LinearLayout.VERTICAL);
-        sv.addView(ll);
-        String i = "iron";
-        Button b = new Button(getActivity());
-        b.setText(i);
-        b.setOnClickListener(this);
-        ll.addView(b);
-
         myRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 Log.e("Count ","" + dataSnapshot.getChildrenCount());
-                ArrayList<String> listahan = new ArrayList<>();
+                ScrollView sv = (ScrollView)v.findViewById(R.id.scrollView);
+                LinearLayout ll;
+                ll = new LinearLayout(getActivity());
+                ll.setOrientation(LinearLayout.VERTICAL);
+                sv.addView(ll);
+                listahan = new ArrayList<>();
 
                 for(DataSnapshot dsp: dataSnapshot.getChildren()){
-                    listahan.add(String.valueOf(dsp.getValue()));
-
+                    listahan.add(String.valueOf(dsp.getKey()));
                 }
 
-
+                for (String object: listahan) {
+                    Button b = new Button(getActivity());
+                    b.setText(object);
+                    b.setOnClickListener(HomeFragmentAdmin.this);
+                    ll.addView(b);
+                }
             }
 
             @Override
@@ -79,16 +83,12 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
             }
         });
+
         return v;
     }
 
     @Override
     public void onClick(View v) {
-//        User user = ;
-//
-//        String studentNo = ((Button)v).getText().toString();
-//        user.set_studentNumber(studentNo);
-
         AppointmentFragment appointmentFragment = new AppointmentFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.fragmentHolder, appointmentFragment,
