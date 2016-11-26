@@ -41,6 +41,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
     ArrayList<String> listahan;
     View v;
 
+
     public HomeFragmentAdmin() {
         // Required empty public constructor
     }
@@ -89,7 +90,12 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Bundle bundle = new Bundle();
+        String btnText = ((Button)v).getText().toString();
+        //Toast.makeText(getContext(),btnText,Toast.LENGTH_SHORT).show();
+        bundle.putString("btnText", btnText);
         AppointmentFragment appointmentFragment = new AppointmentFragment();
+        appointmentFragment.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.fragmentHolder, appointmentFragment,
                 appointmentFragment.getTag()).commit();
