@@ -42,7 +42,6 @@ public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         _counselor = database.getReference("Accounts").child("Counselors");
         _student = database.getReference("Accounts").child("Student");

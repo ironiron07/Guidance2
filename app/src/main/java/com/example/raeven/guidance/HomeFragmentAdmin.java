@@ -68,10 +68,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
                 for(DataSnapshot dsp: dataSnapshot.getChildren()){
                     listahan.add(String.valueOf(dsp.getValue()));
-
                 }
-
-
             }
 
             @Override
@@ -91,7 +88,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
         AppointmentFragment appointmentFragment = new AppointmentFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentHolder, appointmentFragment,
-                appointmentFragment.getTag()).commit();
+        manager.beginTransaction().hide(manager.findFragmentById(R.id.adminHome)).commit();
+        manager.beginTransaction().add(appointmentFragment, appointmentFragment.getTag()).commit();
     }
 }
