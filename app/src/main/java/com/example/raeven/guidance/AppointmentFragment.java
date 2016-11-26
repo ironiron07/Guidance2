@@ -4,6 +4,7 @@ package com.example.raeven.guidance;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,9 +61,6 @@ public class AppointmentFragment extends Fragment {
 
             }
         });
-        // Inflate the layout for this fragment
-        return v;
-        View v = inflater.inflate(R.layout.fragment_appointment, container, false);
 
         openChat = (Button) v.findViewById(R.id.btnOpenChat);
         setAppointment = (Button) v.findViewById(R.id.btnSetAppointment);
@@ -97,6 +95,9 @@ public class AppointmentFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().show(fragmentManager.findFragmentById(R.id.adminHome)).commit();
+                fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(R.id.appointmentFrag)).commit();
             }
         });
     }
