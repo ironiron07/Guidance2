@@ -8,10 +8,6 @@
             android:icon="@drawable/ic_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_councelors"
-            android:icon="@drawable/ic_stat_name"
-            android:title="Councelors" />
-        <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_menu_manage"
             android:title="My profile" />

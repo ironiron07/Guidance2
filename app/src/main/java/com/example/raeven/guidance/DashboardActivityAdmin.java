@@ -110,15 +110,6 @@ public class DashboardActivityAdmin extends AppCompatActivity
 
         }
 
-        else if (id == R.id.nav_councelors) {
-            Toast.makeText(this, "I'm at Councelors Fragment", Toast.LENGTH_SHORT).show();
-            CouncelorsFragment councelorsFragment = new CouncelorsFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.fragmentHolder, councelorsFragment,
-                    councelorsFragment.getTag()).commit();
-
-        }
-
         else if (id == R.id.nav_account) {
             Toast.makeText(this, "I'm at Account", Toast.LENGTH_SHORT).show();
             AccountFragment accountFragment = new AccountFragment();
