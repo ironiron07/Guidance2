@@ -27,11 +27,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
-<<<<<<< HEAD
     compile 'com.google.firebase:firebase-database:9.6.1'
-=======
     compile 'com.google.firebase:firebase-database:10.0.0'
->>>>>>> 16b7b301f3300a824fe5200d19c9c9266de9678a
     compile 'com.firebase:firebase-client-android:2.5.2'
     testCompile 'junit:junit:4.12'
 }

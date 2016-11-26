@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 public class AppointmentFragment extends Fragment {
 
 
+
     public AppointmentFragment() {
         // Required empty public constructor
     }

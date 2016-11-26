@@ -24,28 +24,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/lblViewTitle">
+            android:layout_below="@id/lblViewTitle"
+            android:id="@+id/scrollView">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/linearLayoutAssignedStudents">
 
-                <Button
-                    android:text="2013062061: Jeffrey Garrido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button5"
-                    android:backgroundTint="@android:color/background_light" />
-
-                <Button
-                    android:text="2016123456: Test User"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button6"
-                    android:backgroundTint="@android:color/background_light" />
-            </LinearLayout>
         </ScrollView>
     </RelativeLayout>
 

@@ -136,6 +136,7 @@ public class DashboardActivity extends AppCompatActivity
         else if (id == R.id.nav_logout) {
             Toast.makeText(this, "I'm at Logout", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
+            finish();
             startActivity(intent);
 
         }

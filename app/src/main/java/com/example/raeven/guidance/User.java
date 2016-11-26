@@ -13,6 +13,8 @@ public class User
     private String _course;
     private int _userType;
 
+    public User(){}
+
     public User(String _name, String _studentNumber, String _password, String _email, String _contactNumber, String _course, int _userType) {
         this._name = _name;
         this._studentNumber = _studentNumber;
@@ -22,6 +24,8 @@ public class User
         this._course = _course;
         this._userType = _userType;
     }
+
+
 
     public String get_name() {
         return _name;

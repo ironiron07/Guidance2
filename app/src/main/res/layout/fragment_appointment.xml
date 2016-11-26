@@ -99,7 +99,7 @@
             android:layout_margin="5dp" />
 
         <TextView
-            android:text="Preferred time:"
+            android:text="Student's preferred time:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView15"
@@ -122,7 +122,7 @@
             android:editable="true" />
 
         <TextView
-            android:text="TextView"
+            android:text="Set appointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtPrefDate"
@@ -136,10 +136,20 @@
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/txtSetAppoinment"
             android:layout_below="@+id/textView33"
             android:layout_alignLeft="@+id/txtPrefDate"
             android:layout_alignStart="@+id/txtPrefDate" />
+
+        <Button
+            android:text="Set Appointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSetAppointment"
+            android:layout_below="@+id/txtSetAppoinment"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp" />
 
     </RelativeLayout>
 </FrameLayout>

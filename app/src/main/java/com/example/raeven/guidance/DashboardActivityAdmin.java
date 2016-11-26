@@ -14,11 +14,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardActivityAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
-        String number;
+    String number;
+    ListView lv;
+
+//    public interface UserObject {
+//        public static User user;
+//        public static User getInstance(){
+//            return this.user;
+//        }
+//
+//        public static
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +42,7 @@ public class DashboardActivityAdmin extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //user = new User();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,6 +60,13 @@ public class DashboardActivityAdmin extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.fragmentHolder, homeFragment,
                 homeFragment.getTag()).commit();
+
+        final List<String> itemList = new ArrayList<String>();
+
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.activity_list_item,itemList);
+
+
 
         Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
     }
@@ -124,6 +148,7 @@ public class DashboardActivityAdmin extends AppCompatActivity
         else if (id == R.id.nav_logout) {
             Toast.makeText(this, "I'm at Logout", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
+            finish();
             startActivity(intent);
 
         }
