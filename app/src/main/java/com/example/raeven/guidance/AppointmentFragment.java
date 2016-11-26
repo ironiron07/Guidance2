@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -26,11 +27,12 @@ public class AppointmentFragment extends Fragment {
 
     Button openChat, btnBack, setAppointment;
     EditText txtSetAppointment;
-    Bundle bundle;
     String studentNumber;
 
     DatabaseReference reference;
     DatabaseReference _student;
+
+    String name;
 
     public AppointmentFragment() {
         // Required empty public constructor
@@ -45,14 +47,19 @@ public class AppointmentFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         _student = database.getReference("Accounts").child("Student");
 
-        bundle = this.getArguments();
+
+        Bundle bundle = this.getArguments();
+
         studentNumber = bundle.getString("btnText");
+        final TextView lblName = (TextView)v.findViewById(R.id.lblAppointmentWith);
 
         _student.child(studentNumber).addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    Log.e("VALUE_E: ",dataSnapshot.getKey());
+                    //Toast.makeText(getActivity(), ""+dataSnapshot.child("Name").getValue(), Toast.LENGTH_SHORT).show();
+                    lblName.setText(dataSnapshot.child("Name").getValue().toString());
                 }
             }
 
@@ -62,6 +69,7 @@ public class AppointmentFragment extends Fragment {
             }
         });
 
+        // Inflate the layout for this fragment
         openChat = (Button) v.findViewById(R.id.btnOpenChat);
         setAppointment = (Button) v.findViewById(R.id.btnSetAppointment);
         btnBack = (Button) v.findViewById(R.id.btnBack);
